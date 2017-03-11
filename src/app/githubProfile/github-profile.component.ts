@@ -9,17 +9,15 @@ import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 })
 export class GithubProfileComponent implements OnInit {
     @Input() currentUserData: IGithubUser;
+    @Input() currentUserRepos: any;
+
     @Output() searchNotify: EventEmitter<string> = new EventEmitter<string>();
 
-    constructor() {
+    constructor() { }
 
-    }
-
-    ngOnInit() {
-    }
+    ngOnInit() { }
 
     searchEvent($event: any) {
-        console.log($event);
         this.searchNotify.emit($event.target.value);
     }
 }

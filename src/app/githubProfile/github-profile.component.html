@@ -30,9 +30,9 @@
     <!-- /.container-fluid -->
 </nav>
 
-<div class="container">
-    <div *ngIf='currentUserData'>
+<div class="container" *ngIf='currentUserData'>
 
+    <div class="jumbotron">
         <div class="media">
             <div class="media-left">
                 <a [href]="currentUserData.html_url">
@@ -41,9 +41,50 @@
             </div>
             <div class="media-body">
                 <h4 class="media-heading">{{ currentUserData.name }}</h4>
-                {{ currentUserData.bio }}
+                <span class="label label-default">{{currentUserData.public_repos}} public repos</span>
+                <span class="label label-primary">{{currentUserData.public_gists}} public gists</span>
+                <span class="label label-success">{{currentUserData.followers}} Followers</span>
+                <span class="label label-info">{{currentUserData.following}} Following</span>
+
+                <div class="list-group">
+                    <span class="list-group-item"><strong>Bio</strong> {{ currentUserData.bio }}</span>
+                    <span class="list-group-item"><strong>location</strong> {{ currentUserData.location}}</span>
+                    <span class="list-group-item"><strong>Created at</strong> {{ currentUserData.created_at}}</span>
+                    <span class="list-group-item"><strong>Updated at</strong> {{ currentUserData.updated_at}}</span>
+                    <span class="list-group-item"><strong>Created at</strong> {{ currentUserData.created_at}}</span>
+                </div>
+
             </div>
         </div>
-
     </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Repos</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div *ngFor="let repo of currentUserRepos">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <a [href]="repo.html_url" target="_blank">
+                                    <h4> {{ repo.name }}</h4>
+                                </a>
+                                {{ repo.description }}
+                            </div>
+                            <div class="col-md-3">
+                                <span class="label label-default">{{ repo.stargazers_count }} Stars </span>
+                                <span class="label label-primary">{{ repo.forks_count }} Forks</span>
+                                <span class="label label-success">{{ repo.watchers_count }} Watchers</span>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>

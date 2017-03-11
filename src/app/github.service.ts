@@ -10,14 +10,19 @@ export class GithubService {
     private _currentUsername: BehaviorSubject<string> = new BehaviorSubject(null);
     private currentUsername$: Observable<string> = this._currentUsername.asObservable();
 
-    private _currentUserData: BehaviorSubject<IGithubUser> = new BehaviorSubject(null);
-    public currentUserData$: Observable<IGithubUser> = this._currentUserData.asObservable();
+    private _currentUserInfo: BehaviorSubject<IGithubUser> = new BehaviorSubject(null);
+    public currentUserInfo$: Observable<IGithubUser> = this._currentUserInfo.asObservable();
+
+    private _currentUserRepos: BehaviorSubject<any> = new BehaviorSubject(null);
+    public currentUserRepos$: Observable<any> = this._currentUserRepos.asObservable();
+
 
 
     constructor() {
         this.currentUsername$.subscribe(res => {
             if (res && res.length > 0) {
                 this.getUserNameProfile(res);
+                this.getUserNameRepos(res);
             }
         });
     }
@@ -33,8 +38,20 @@ export class GithubService {
             return response.json();
         }).then((response: any) => {
             if (!response.message) {
+                this._currentUserInfo.next(<IGithubUser>response);
+            }
+        });
+    }
+
+    getUserNameRepos(_name: string) {
+        fetch(`https://api.github.com/users/${_name}/repos`, {
+            method: 'GET'
+        }).then(response => {
+            return response.json();
+        }).then((response: any) => {
+            if (!response.message) {
                 console.log(response);
-                this._currentUserData.next(<IGithubUser>response);
+                this._currentUserRepos.next(response);
             }
         });
     }

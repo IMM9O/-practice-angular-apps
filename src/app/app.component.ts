@@ -7,10 +7,11 @@ import { GithubService } from './github.service';
   template: `<h1>
   
   Hello {{name}}
-  
-  <github-profile [currentUserData]='currentUserData' (searchNotify)='searchNotify($event)' ></github-profile>
-  
-  </h1>`,
+
+  </h1>
+  <body>
+    <github-profile [currentUserData]='currentUserData' (searchNotify)='searchNotify($event)' ></github-profile>
+  </body>`,
 })
 export class AppComponent {
   name = 'Angular 2+ Github Search Users ';

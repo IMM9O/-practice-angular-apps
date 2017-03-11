@@ -33,6 +33,7 @@ export class GithubService {
             return response.json();
         }).then((response: any) => {
             if (!response.message) {
+                console.log(response);
                 this._currentUserData.next(<IGithubUser>response);
             }
         });

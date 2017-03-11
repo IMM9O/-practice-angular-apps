@@ -11,9 +11,20 @@ import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
     
       {{ currentUserData.html_url }}
     </span> 
-    
-    
     `,
+    styles: [`
+        :host {
+            display: flex;
+            margin: 15px;
+            border: 1px solid;
+            border-color: blanchedalmond;
+            padding: 15px;
+            justify-content: center;
+            align-items: flex-start;
+
+        }
+    `
+    ]
 })
 export class GithubProfileComponent implements OnInit {
     @Input() currentUserData: IGithubUser;

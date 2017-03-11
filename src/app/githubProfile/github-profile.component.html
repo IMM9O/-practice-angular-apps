@@ -66,14 +66,14 @@
             <div class="row">
                 <div class="col-md-12">
                     <div *ngFor="let repo of currentUserRepos">
-                        <div class="row">
+                        <div class="row breadcrumb">
                             <div class="col-md-9">
                                 <a [href]="repo.html_url" target="_blank">
                                     <h4> {{ repo.name }}</h4>
                                 </a>
                                 {{ repo.description }}
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-3 right">
                                 <span class="label label-default">{{ repo.stargazers_count }} Stars </span>
                                 <span class="label label-primary">{{ repo.forks_count }} Forks</span>
                                 <span class="label label-success">{{ repo.watchers_count }} Watchers</span>

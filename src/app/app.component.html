@@ -5,7 +5,7 @@
       <div class="container">
         <div class="nav-left">
           <a class="nav-item">
-            <img src="./assets/images/spotify1600.png" alt="Logo">
+            <img src="./../assets/images/spotfiy.png" alt="Logo">
           </a>
         </div>
         <span class="nav-toggle">
@@ -14,7 +14,7 @@
         <span></span>
         </span>
         <div class="nav-right nav-menu">
-          <a class="nav-item" routerLink="" routerLinkActive="is-active">Home</a>
+          <a class="nav-item" routerLink="" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}">Home</a>
           <a class="nav-item" routerLink="/about" routerLinkActive="is-active">About</a>
           <a class="nav-item" routerLink="/album/4" routerLinkActive="is-active">Documentation</a>
           <span class="nav-item">
@@ -52,7 +52,5 @@
     </p>
   </div>
 </section>
-
-<app-album-list></app-album-list>
-<router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 <!-- Routed views go here -->

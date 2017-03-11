@@ -20,7 +20,8 @@ const appRoutes: Routes = [
   }, {
     path: 'artist/:id',
     component: ArtistComponent
-  }
+  },
+  { path: '' , component: AlbumListComponent}
 ];
 
 @NgModule({

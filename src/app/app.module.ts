@@ -4,7 +4,6 @@ import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 
 import {AppComponent} from './app.component';
-import {ArtistComponent} from './artist/artist.component';
 import {AlbumComponent} from './album/album.component';
 import {Routes, RouterModule} from '@angular/router';
 import {AboutComponent} from './about/about.component';
@@ -19,16 +18,13 @@ const appRoutes: Routes = [
   }, {
     path: 'album/:id',
     component: AlbumComponent
-  }, {
-    path: 'artist',
-    component: ArtistComponent
   },
   { path: '' , component: AlbumListComponent}
 ];
 
 @NgModule({
   declarations: [
-    AppComponent, ArtistComponent, AlbumComponent, AboutComponent, AlbumListComponent
+    AppComponent , AlbumComponent, AboutComponent, AlbumListComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

@@ -1,34 +1,24 @@
-<div class="columns is-multiline is-mobile" *ngIf="albums">
-  <div class="column is-one-quarter" *ngFor="let album of albums.items">
-    <div class="card">
-      <div class="card-image">
-        <a  routerLink="/album/{{album.id}}">
-        <figure class="image is-4by3">
-          <img [src]="album.images[1].url" alt="Image">
-        </figure>
-        </a>
-      </div>
-      <div class="card-content">
-        <div class="media">
-          <div class="media-left">
-              <a  routerLink="/artist">
-            <figure class="image" style="height: 40px; width: 40px;">
-                <img [src]="artist.images[2].url" alt="Image">
-              
-            </figure>
-              </a>
-          </div>
-          <div class="media-content">
-            <p class="title is-4">{{ album.name }}</p>
-            <p class="subtitle is-6"><span class="tag is-info">{{ album.album_type }}</span></p>
-          </div>
-        </div>
 
-        <div class="content">
+  <article class="album-title" *ngIf="artist">
 
-        </div>
-      </div>
+    <img [src]="artist.images[1].url" alt="">
+
+    <div class="desc">
+
+      <h1>{{ artist.name}}</h1>
+      <h5>{{ artist.followers.total }}</h5>
     </div>
-  </div>
-  
-</div>
+
+  </article>
+
+  <article class="Tracks" *ngIf="albums">
+      <div class="track"   *ngFor="let album of albums.items">
+        <a routerLink="/album/{{album.id}}">
+          <img class="track-img" [src]="album.images[1].url" alt="">
+        </a>
+        
+        <p class="track-text">
+          {{album.name}}
+        </p>
+      </div>
+  </article>

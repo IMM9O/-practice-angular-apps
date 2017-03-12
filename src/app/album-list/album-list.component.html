@@ -2,19 +2,21 @@
   <div class="column is-one-quarter" *ngFor="let album of albums.items">
     <div class="card">
       <div class="card-image">
+        <a  routerLink="/album/{{album.id}}">
         <figure class="image is-4by3">
           <img [src]="album.images[1].url" alt="Image">
         </figure>
+        </a>
       </div>
       <div class="card-content">
         <div class="media">
           <div class="media-left">
+              <a  routerLink="/artist">
             <figure class="image" style="height: 40px; width: 40px;">
-              <a class="nav-item" routerLink="/artist" routerLinkActive="is-active">
                 <img [src]="artist.images[2].url" alt="Image">
-              </a>
               
             </figure>
+              </a>
           </div>
           <div class="media-content">
             <p class="title is-4">{{ album.name }}</p>

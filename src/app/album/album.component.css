@@ -1,0 +1,28 @@
+:host {
+    margin: 20px;
+}
+
+.album-title {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+
+}
+
+.album-title img {
+    height: 120px;
+    width: 120ps;
+    border: 3px solid #333;
+    border-radius: 50%; 
+}
+
+.album-title .desc {
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.album-tracks {
+    margin: 10px;
+}

@@ -1,3 +1,28 @@
-<p>
-  album works!
-</p>
+<div *ngIf="album">
+
+
+
+
+  <article class="album-title">
+
+    <img [src]="album.images[0].url" alt="">
+
+    <div class="desc">
+
+      <h1>{{ album.name}}</h1>
+      <h5>{{ album.release_date }}</h5>
+    </div>
+
+  </article>
+
+  <article class="album-tracks">
+
+    <div class="columns is-multiline is-mobile" *ngIf="album.tracks">
+      <div class="column is-2" *ngFor="let track of album.tracks.items">
+              <img [src]="album.images[1].url" alt="">
+      </div>
+    </div>
+
+
+  </article>
+</div>

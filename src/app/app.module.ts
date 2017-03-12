@@ -10,6 +10,8 @@ import {Routes, RouterModule} from '@angular/router';
 import {AboutComponent} from './about/about.component';
 import { AlbumListComponent } from './album-list/album-list.component';
 
+import { SpotifyService } from './spotify.service';
+
 const appRoutes: Routes = [
   {
     path: 'about',
@@ -18,7 +20,7 @@ const appRoutes: Routes = [
     path: 'album/:id',
     component: AlbumComponent
   }, {
-    path: 'artist/:id',
+    path: 'artist',
     component: ArtistComponent
   },
   { path: '' , component: AlbumListComponent}
@@ -34,7 +36,7 @@ const appRoutes: Routes = [
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [SpotifyService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

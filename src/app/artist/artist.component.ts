@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SpotifyService } from './../spotify.service';
+
 
 @Component({
   selector: 'app-artist',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./artist.component.css']
 })
 export class ArtistComponent implements OnInit {
-
-  constructor() { }
+  artist: any = null;
+  constructor(private _spotifyService: SpotifyService) {
+      _spotifyService.currentArtistInfo$.subscribe( res => this.artist = res);
+   }
 
   ngOnInit() {
   }
+
+  
 
 }

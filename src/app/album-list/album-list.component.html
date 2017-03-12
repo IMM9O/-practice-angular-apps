@@ -1,21 +1,24 @@
-<div class="columns is-multiline is-mobile">
-  <div class="column is-one-quarter" *ngFor="let album of albums">
+<div class="columns is-multiline is-mobile" *ngIf="albums">
+  <div class="column is-one-quarter" *ngFor="let album of albums.items">
     <div class="card">
       <div class="card-image">
         <figure class="image is-4by3">
-          <img src="http://bulma.io/images/placeholders/1280x960.png" alt="Image">
+          <img [src]="album.images[1].url" alt="Image">
         </figure>
       </div>
       <div class="card-content">
         <div class="media">
           <div class="media-left">
             <figure class="image" style="height: 40px; width: 40px;">
-              <img src="http://bulma.io/images/placeholders/96x96.png" alt="Image">
+              <a class="nav-item" routerLink="/artist" routerLinkActive="is-active">
+                <img [src]="artist.images[2].url" alt="Image">
+              </a>
+              
             </figure>
           </div>
           <div class="media-content">
-            <p class="title is-4">John Smith</p>
-            <p class="subtitle is-6">@johnsmith</p>
+            <p class="title is-4">{{ album.name }}</p>
+            <p class="subtitle is-6"><span class="tag is-info">{{ album.album_type }}</span></p>
           </div>
         </div>
 

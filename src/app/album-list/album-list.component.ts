@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { SpotifyService } from './../spotify.service';
 
 @Component({
   selector: 'app-album-list',
@@ -6,66 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./album-list.component.css']
 })
 export class AlbumListComponent implements OnInit {
-  albums: any[]= [{name: '' , year: ''} ,
-   {name: '' , year: ''} ,
-   {name: '' , year: ''} ,
-   {name: '' , year: ''} ,
-   {name: '' , year: ''},
-    {name: '' , year: ''} ,
-    {name: '' , year: ''} ,
-    {name: '' , year: ''} ,
-    {name: '' , year: ''} ,
-    {name: '' , year: ''} ,
-    {name: '' , year: ''} ,
-    {name: '' , year: ''} ,
-    {name: '' , year: ''} ,
-    {name: '' , year: ''} ,
-    {name: '' , year: ''} ,
-    {name: '' , year: ''} ,
-    {name: '' , year: ''} ,
-    {name: '' , year: ''} ,
-    {name: '' , year: ''} ,
-    {name: '' , year: ''} ,
-    {name: '' , year: ''} ,
-    {name: '' , year: ''} ,
-    {name: '' , year: ''} ,
-    {name: '' , year: ''} ,
-    {name: '' , year: ''} ,
-    {name: '' , year: ''} ,
-    {name: '' , year: ''} ,
-    {name: '' , year: ''} ,
-    {name: '' , year: ''} ,
-    {name: '' , year: ''} ,
-    {name: '' , year: ''} ,
-    {name: '' , year: ''} ,
-    {name: '' , year: ''} ,
-    {name: '' , year: ''} ,
-    {name: '' , year: ''} ,
-    {name: '' , year: ''} ,
-    {name: '' , year: ''} ,
-    {name: '' , year: ''} ,
-    {name: '' , year: ''} ,
-    {name: '' , year: ''} ,
-    {name: '' , year: ''} ,
-    {name: '' , year: ''} ,
-    {name: '' , year: ''} ,
-    {name: '' , year: ''} ,
-    {name: '' , year: ''} ,
-    {name: '' , year: ''} ,
-    {name: '' , year: ''} ,
-    {name: '' , year: ''} ,
-    {name: '' , year: ''} ,
-    {name: '' , year: ''} ,
-    {name: '' , year: ''} ,
-    {name: '' , year: ''} ,
-    {name: '' , year: ''} ,
-    {name: '' , year: ''} ,
-  {name: '' , year: ''} ,
-  {name: '' , year: ''} ,
-  {name: '' , year: ''} ,
-  {name: '' , year: ''} ];
+  albums: any[] = null;
+  artist: any = null;
 
-  constructor() { }
+  constructor(private _spotifyService: SpotifyService) {
+    _spotifyService.currentArtistAlbums$.subscribe(res => this.albums = res);
+    _spotifyService.currentArtistInfo$.subscribe( res => this.artist = res);
+   }
 
   ngOnInit() {
   }

@@ -13,6 +13,7 @@ export class AlbumListComponent implements OnInit {
   constructor(private _spotifyService: SpotifyService) {
     _spotifyService.currentArtistAlbums$.subscribe(res => this.albums = res);
     _spotifyService.currentArtistInfo$.subscribe( res => this.artist = res);
+    _spotifyService.currentArtistInfo$.subscribe( res => console.log(res));
    }
 
   ngOnInit() {

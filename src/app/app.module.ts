@@ -11,6 +11,7 @@ import { AlbumListComponent } from './album-list/album-list.component';
 
 import { SpotifyService } from './spotify.service';
 import { CountSizePipe } from './count-size.pipe';
+import { SearchComponent } from './search/search.component';
 
 const appRoutes: Routes = [
   {
@@ -25,7 +26,7 @@ const appRoutes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent , AlbumComponent, AboutComponent, AlbumListComponent, CountSizePipe
+    AppComponent , AlbumComponent, AboutComponent, AlbumListComponent, CountSizePipe, SearchComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

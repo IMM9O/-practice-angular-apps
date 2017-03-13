@@ -57,8 +57,10 @@ export class SpotifyService {
   getArtistInfo(name: string){
       const FEATCH_URL =`${this.BASE_URL}/v1/search?q=${name}&type=artist&limit=1`;
       this._http.get(FEATCH_URL).subscribe(res => {
-          this._currentArtistInfo.next(res.json().artists.items[0]);
-          this._currentArtistId.next(res.json().artists.items[0].id);
+          if ( res.json().artists.items[0] ){
+            this._currentArtistInfo.next(res.json().artists.items[0]);
+            this._currentArtistId.next(res.json().artists.items[0].id);
+          }
       });
   }
 

@@ -25,9 +25,9 @@ export class AppComponent {
 
 
 
-  searchEvent($event) {
+  searchNotify(keyword) {
      this._router.navigate(['']);
-    this._spotifyService.setArtistName($event.target.value);
+    this._spotifyService.setArtistName(keyword);
 
   }
 }

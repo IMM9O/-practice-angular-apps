@@ -27,6 +27,9 @@ export class SpotifyService {
   private _currentAlubumsSongs: BehaviorSubject<any> = new BehaviorSubject(null);
   public currentAlubumsSongs$: Observable<any> = this._currentAlubumsSongs.asObservable();
 
+  private _currentArtistsList: BehaviorSubject<any[]> = new BehaviorSubject(null);
+  public currentArtistsList$: Observable<any[]> = this._currentArtistsList.asObservable();
+
   constructor(private _http: Http) {
       this.currentArtistName$.subscribe( res =>{
           if (res && res.length > 0 ) {
@@ -54,7 +57,23 @@ export class SpotifyService {
   setAlbumId(_id: string){
     this._currentAlbumId.next(_id);
   }
+
+  getArtistsList(name: string){
+     if (name.length > 0 ){
+        const FEATCH_URL =`${this.BASE_URL}/v1/search?q=${name}&type=artist&limit=5`;
+        this._http.get(FEATCH_URL).subscribe(res => {
+            if ( res.json().artists.items && res.json().artists.items.length > 0 ){
+              this._currentArtistsList.next(res.json().artists.items);
+            } else {
+                this._currentArtistsList.next([]);
+            }
+        });
+     } else {
+        this._currentArtistsList.next([]);
+     }
+  }
   getArtistInfo(name: string){
+      this._currentArtistsList.next([]);
       const FEATCH_URL =`${this.BASE_URL}/v1/search?q=${name}&type=artist&limit=1`;
       this._http.get(FEATCH_URL).subscribe(res => {
           if ( res.json().artists.items[0] ){

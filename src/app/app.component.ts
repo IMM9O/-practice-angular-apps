@@ -11,23 +11,26 @@ import { Observable } from 'rxjs/Rx';
 })
 export class AppComponent {
   online$: Observable<boolean>;
+  searchList$: Observable<any>;
   title = 'app works!';
-  artist: any = null;
 
   constructor(private _spotifyService: SpotifyService, private _router: Router){
-      _spotifyService.currentArtistInfo$.subscribe(res => this.artist = res);
       this.online$ = Observable.merge(
         Observable.of(navigator.onLine),
         Observable.fromEvent(window, 'online').map(() => true),
         Observable.fromEvent(window, 'offline').map(() => false)
       )
+      this.searchList$ = _spotifyService.currentArtistsList$ ;
   }
 
 
 
-  searchNotify(keyword) {
-     this._router.navigate(['']);
-    this._spotifyService.setArtistName(keyword);
+  searchNotify(name) {
+     this._spotifyService.getArtistsList(name);
+  }
 
+  getItemNotify(name) {
+     this._router.navigate(['']);
+     this._spotifyService.setArtistName(name);
   }
 }

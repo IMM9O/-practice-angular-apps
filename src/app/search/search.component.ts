@@ -1,4 +1,5 @@
-import { Component, OnInit , Input , Output ,EventEmitter} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Observable } from "rxjs/Observable";
 
 @Component({
   selector: 'app-search',
@@ -6,16 +7,26 @@ import { Component, OnInit , Input , Output ,EventEmitter} from '@angular/core';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  @Input() searchList: any[];
+  @Input() results: Observable<any>;
   @Output() searchNotify: EventEmitter<string> = new EventEmitter();
+  @Output() getItemNotify: EventEmitter<string> = new EventEmitter();
+  searchText = '';
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   searchEvent($event) {
-    this.searchNotify.emit($event.target.value);
+    this.searchNotify.emit($event);
+  }
+
+  getItemEvent($event) {
+    this.getItemNotify.emit($event);
+  }
+
+  selectEvent(name) {
+    this.searchText = name;
+    this.getItemEvent(name);
   }
 
 }

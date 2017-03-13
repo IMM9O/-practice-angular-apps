@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { SpotifyService } from './../spotify.service';
+import { Observer } from "rxjs/Rx";
+import { Observable } from "rxjs/Observable";
 
 @Component({
   selector: 'app-album-list',
@@ -7,13 +9,12 @@ import { SpotifyService } from './../spotify.service';
   styleUrls: ['./album-list.component.css']
 })
 export class AlbumListComponent implements OnInit {
-  albums: any[] = null;
-  artist: any = null;
+  albums$: Observable<any>;
+  artist$: Observable<any>;
 
   constructor(private _spotifyService: SpotifyService) {
-    _spotifyService.currentArtistAlbums$.subscribe(res => this.albums = res);
-    _spotifyService.currentArtistInfo$.subscribe( res => this.artist = res);
-    _spotifyService.currentArtistInfo$.subscribe( res => console.log(res));
+    this.albums$ = _spotifyService.currentArtistAlbums$;
+    this.artist$ =  _spotifyService.currentArtistInfo$;
    }
 
   ngOnInit() {

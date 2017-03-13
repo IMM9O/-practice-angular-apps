@@ -1,18 +1,18 @@
 
-  <article class="album-title" *ngIf="artist">
+  <article class="album-title" *ngIf="artist$ | async">
 
-    <img [src]="artist.images[1].url" alt="">
+    <img [src]="(artist$ | async)?.images[1].url" alt="">
 
     <div class="desc">
 
-      <h1>{{ artist.name}}</h1>
-      <h5>{{ artist.followers.total | countSize}}</h5>
+      <h1>{{ (artist$ | async)?.name}}</h1>
+      <h5>{{ (artist$ | async)?.followers.total | countSize}}</h5>
     </div>
 
   </article>
 
-  <article class="Tracks" *ngIf="albums">
-      <div class="track"   *ngFor="let album of albums.items">
+  <article class="Tracks" *ngIf="albums$ | async">
+      <div class="track"   *ngFor="let album of (albums$ | async)?.items">
         <a routerLink="/album/{{album.id}}">
           <img class="track-img" [src]="album.images[1].url" alt="">
         </a>

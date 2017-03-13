@@ -52,5 +52,16 @@
     </p>
   </div>
 </section>
-  <router-outlet></router-outlet>
+<router-outlet></router-outlet>
 <!-- Routed views go here -->
+
+<div class="modal" [class.is-active]="!(online$ | async)">
+  <div class="modal-background"></div>
+  <div class="modal-content" >
+    <div class="box">
+
+     You are not connected to the internet 
+     please reconnect to the iternet and this message will disappear
+    </div>
+  </div>
+</div>

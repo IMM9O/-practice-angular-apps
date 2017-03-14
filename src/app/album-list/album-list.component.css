@@ -10,8 +10,8 @@
 }
 
 .album-title img {
-    height: 120px;
-    width: 120ps;
+    max-height: 200px;
+    max-width: 200px;
     border: 3px solid #333;
     border-radius: 50%; 
 }

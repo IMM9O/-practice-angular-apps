@@ -1,8 +1,9 @@
 
   <article class="album-title" *ngIf="artist$ | async">
 
-    <img [src]="(artist$ | async)?.images[1].url" alt="">
+    <img *ngIf="(artist$ | async)?.images.length > 0" [src]="(artist$ | async)?.images[1].url" alt="" >
 
+    <img *ngIf="(artist$ | async)?.images.length <= 0" src="../../assets/images/profile.png" alt="" >
     <div class="desc">
 
       <h1>{{ (artist$ | async)?.name}}</h1>

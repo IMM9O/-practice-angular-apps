@@ -15,8 +15,8 @@
       placeholder="Search Spotify artist" />
 
 
-    <div class="dropdown-content" *ngIf="(results | async)?.length">
-      <p *ngFor="let artist  of results | async" (click)="selectEvent(artist.name)"> {{ artist.name }} -- Popularity {{ artist.popularity }}</p>
-    </div>
+    <ul class="dropdown-content" *ngIf="(results | async)?.length">
+      <li *ngFor="let artist  of results | async" (click)="selectEvent(artist.name)"> {{ artist.name }} -- popularity {{ artist.popularity }}</li>
+    </ul>
 
 </div>

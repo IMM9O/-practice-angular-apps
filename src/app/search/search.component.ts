@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, HostListener } from '@angular/core';
 import { Observable } from "rxjs/Observable";
 
 @Component({
@@ -29,4 +29,8 @@ export class SearchComponent implements OnInit {
     this.getItemEvent(name);
   }
 
+  @HostListener('document:keypress', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) {
+
+  }
 }

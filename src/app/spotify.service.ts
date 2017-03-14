@@ -59,7 +59,7 @@ export class SpotifyService {
   }
 
   getArtistsList(name: string){
-     if (name.length > 0 ){
+     if (name && name.length > 0 ){
         const FEATCH_URL =`${this.BASE_URL}/v1/search?q=${name}&type=artist&limit=5`;
         this._http.get(FEATCH_URL).subscribe(res => {
             if ( res.json().artists.items && res.json().artists.items.length > 0 ){

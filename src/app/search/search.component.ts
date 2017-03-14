@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, HostListener } from '@angular/core';
 import { Observable } from "rxjs/Observable";
+import { FormControl } from "@angular/forms";
 
 @Component({
   selector: 'app-search',
@@ -10,9 +11,11 @@ export class SearchComponent implements OnInit {
   @Input() results: Observable<any>;
   @Output() searchNotify: EventEmitter<string> = new EventEmitter();
   @Output() getItemNotify: EventEmitter<string> = new EventEmitter();
-  searchText = '';
+  term = new FormControl();
 
-  constructor() { }
+  constructor() {
+     this.term.valueChanges.debounceTime(200).subscribe(res => this.searchEvent(res));
+   }
 
   ngOnInit() { }
 
@@ -25,7 +28,7 @@ export class SearchComponent implements OnInit {
   }
 
   selectEvent(name) {
-    this.searchText = name;
+    this.term.setValue(name);
     this.getItemEvent(name);
   }
 

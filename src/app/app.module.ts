@@ -13,6 +13,8 @@ import { SpotifyService } from './spotify.service';
 import { CountSizePipe } from './count-size.pipe';
 import { SearchComponent } from './search/search.component';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
 const appRoutes: Routes = [
   {
     path: 'about',
@@ -32,7 +34,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    ReactiveFormsModule
   ],
   providers: [SpotifyService],
   bootstrap: [AppComponent]

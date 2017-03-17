@@ -34,7 +34,7 @@ export class GithubService {
     getUserNameProfile(_name: string) {
         fetch(`https://api.github.com/users/${_name}`, {
             method: 'GET'
-        }).then(response => {
+        }).then((response: any) => {
             return response.json();
         }).then((response: any) => {
             if (!response.message) {
@@ -46,7 +46,7 @@ export class GithubService {
     getUserNameRepos(_name: string) {
         fetch(`https://api.github.com/users/${_name}/repos`, {
             method: 'GET'
-        }).then(response => {
+        }).then((response: any) => {
             return response.json();
         }).then((response: any) => {
             if (!response.message) {

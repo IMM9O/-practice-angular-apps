@@ -21,7 +21,7 @@
             <div class="navbar-form">
                 <div class="input-group input-group-lg">
                     <span class="input-group-addon" id="sizing-addon1">@</span>
-                    <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon1" (keyup.enter)="searchEvent($event)">
+                    <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon1" (keyup)="searchEvent($event)">
                 </div>
             </div>
         </div>
@@ -38,6 +38,9 @@
                 <a [href]="currentUserData.html_url">
                     <img class="media-object" width="120" height="120" [src]="currentUserData.avatar_url" alt="currentUserData.name">
                 </a>
+
+                <br>
+                <a [href]="currentUserData.html_url" class="btn btn-info" target="_blank"> Vist Profile </a>
             </div>
             <div class="media-body">
                 <h4 class="media-heading">{{ currentUserData.name }}</h4>

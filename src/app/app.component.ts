@@ -1,6 +1,8 @@
 import { IGithubUser } from './IGithubUser.json';
 import { Component } from '@angular/core';
-import { GithubService } from './github.service';
+import {GithubService} from './github.service';
+import {BehaviorSubject} from "rxjs/BehaviorSubject";
+import {Observable} from "rxjs/Observable";
 
 @Component({
   selector: 'my-app',
@@ -11,22 +13,22 @@ import { GithubService } from './github.service';
   </h1>
   <body>
     <github-profile 
-      [currentUserData]='currentUserData' 
-      [currentUserRepos]='currentUserRepos' 
+      [currentUserData]='currentUserInfo$ | async' 
+      [currentUserRepos]='currentUserRepos$ | async' 
       (searchNotify)='searchNotify($event)' 
     >
     </github-profile>
   </body>`,
 })
 export class AppComponent {
-  name = 'Angular 2+ Github Search Users ';
+    name = 'Angular 2+ Github Search Users ';
 
-  currentUserData: IGithubUser = null;
-  currentUserRepos: any = null;
+    currentUserInfo$: Observable<IGithubUser>;
+    currentUserRepos$: Observable<any>;
 
   constructor(private _githubService: GithubService) {
-    this._githubService.currentUserInfo$.subscribe(res => this.currentUserData = res);
-    this._githubService.currentUserRepos$.subscribe(res => this.currentUserRepos = res);
+     this.currentUserInfo$ = _githubService.currentUserInfo$;
+     this.currentUserRepos$ = _githubService.currentUserRepos$;
   }
 
   searchNotify(searchKeyword: string) {

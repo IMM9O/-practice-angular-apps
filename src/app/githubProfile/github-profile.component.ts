@@ -1,11 +1,12 @@
 import { IGithubUser } from './../IGithubUser.json';
-import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, Input, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
     moduleId: module.id,
     selector: 'github-profile',
     templateUrl: './github-profile.component.html',
-    styleUrls: ['./github-profile.component.css']
+    styleUrls: ['./github-profile.component.css'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GithubProfileComponent implements OnInit {
     @Input() currentUserData: IGithubUser;

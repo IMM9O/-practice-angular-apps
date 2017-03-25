@@ -1,0 +1,28 @@
+<div class="jumbotron" *ngIf='currentUserData'>
+    <div class="media">
+        <div class="media-left">
+            <a [href]="currentUserData.html_url">
+                <img class="media-object" width="120" height="120" [src]="currentUserData.avatar_url" alt="currentUserData.name">
+            </a>
+
+            <br>
+            <a [href]="currentUserData.html_url" class="btn btn-info" target="_blank"> Vist Profile </a>
+        </div>
+        <div class="media-body">
+            <h4 class="media-heading">{{ currentUserData.name }}</h4>
+            <span class="label label-default">{{currentUserData.public_repos}} public repos</span>
+            <span class="label label-primary">{{currentUserData.public_gists}} public gists</span>
+            <span class="label label-success">{{currentUserData.followers}} Followers</span>
+            <span class="label label-info">{{currentUserData.following}} Following</span>
+
+            <div class="list-group">
+                <span class="list-group-item"><strong>Bio</strong> {{ currentUserData.bio }}</span>
+                <span class="list-group-item"><strong>location</strong> {{ currentUserData.location}}</span>
+                <span class="list-group-item"><strong>Created at</strong> {{ currentUserData.created_at}}</span>
+                <span class="list-group-item"><strong>Updated at</strong> {{ currentUserData.updated_at}}</span>
+                <span class="list-group-item"><strong>Created at</strong> {{ currentUserData.created_at}}</span>
+            </div>
+
+        </div>
+    </div>
+</div>

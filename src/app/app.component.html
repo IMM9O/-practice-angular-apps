@@ -1,24 +1,20 @@
-<body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="./">GitHub Search</a>
-            </div>
-        </div>
-    </nav>
-
-    <search-instance (searchNotify)='searchNotify($event)'></search-instance>
-
+<nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
-
-        <github-profile [currentUserData]='currentUserInfo$ | async'></github-profile>
-        <github-repos [currentUserRepos]='currentUserRepos$ | async'></github-repos>
-
-        <hr>
-        <footer>
-            <p>&copy; 2016 Company, Inc.</p>
-        </footer>
+        <div class="navbar-header">
+            <a class="navbar-brand" href="./">GitHub Search</a>
+        </div>
     </div>
+</nav>
 
+<search-instance (searchNotify)='searchNotify($event)'></search-instance>
 
-</body>
+<div class="container">
+
+    <github-profile [currentUserData]='currentUserInfo$ | async'></github-profile>
+    <github-repos [currentUserRepos]='currentUserRepos$ | async'></github-repos>
+
+    <hr>
+    <footer>
+        <p>&copy; 2016 Company, Inc.</p>
+    </footer>
+</div>

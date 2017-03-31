@@ -3,5 +3,6 @@
         "src/**/*.js": true,
         "src/**/*.spec.ts": true,
         "src/**/*.js.map": true
-    }
+    },
+    "vsicons.presets.angular": true
 }

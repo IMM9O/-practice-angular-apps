@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { SpotifyService } from './../spotify.service';
-import { Observer } from "rxjs/Rx";
-import { Observable } from "rxjs/Observable";
+import { Observer } from 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-album-list',

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, HostListener } from '@angular/core';
-import { Observable } from "rxjs/Observable";
-import { FormControl } from "@angular/forms";
+import { Observable } from 'rxjs/Observable';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-search',

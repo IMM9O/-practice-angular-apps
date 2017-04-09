@@ -31,7 +31,7 @@ export class SpotifyService {
   public currentArtistsList$: Observable<any[]> = this._currentArtistsList.asObservable();
 
   constructor(private _http: Http) {
-      this.currentArtistName$.subscribe( res =>{
+      this.currentArtistName$.subscribe( res => {
           if (res && res.length > 0 ) {
             this.getArtistInfo(res);
           }
@@ -47,7 +47,7 @@ export class SpotifyService {
         if (res && res.length > 0 ){
             this.getAlbumSongs(res);
         }
-      })
+      });
    }
 
   setArtistName(_name: string){
@@ -60,7 +60,7 @@ export class SpotifyService {
 
   getArtistsList(name: string){
      if (name && name.length > 0 ){
-        const FEATCH_URL =`${this.BASE_URL}/v1/search?q=${name}&type=artist&limit=5`;
+        const FEATCH_URL = `${this.BASE_URL}/v1/search?q=${name}&type=artist&limit=5`;
         this._http.get(FEATCH_URL).subscribe(res => {
             if ( res.json().artists.items && res.json().artists.items.length > 0 ){
               this._currentArtistsList.next(res.json().artists.items);
@@ -74,7 +74,7 @@ export class SpotifyService {
   }
   getArtistInfo(name: string){
       this._currentArtistsList.next([]);
-      const FEATCH_URL =`${this.BASE_URL}/v1/search?q=${name}&type=artist&limit=1`;
+      const FEATCH_URL = `${this.BASE_URL}/v1/search?q=${name}&type=artist&limit=1`;
       this._http.get(FEATCH_URL).subscribe(res => {
           if ( res.json().artists.items[0] ){
             this._currentArtistInfo.next(res.json().artists.items[0]);
@@ -84,14 +84,14 @@ export class SpotifyService {
   }
 
   getArtistAlbums(id: string){
-      const FEATCH_URL =`${this.BASE_URL}/v1/artists/${id}/albums`;
+      const FEATCH_URL = `${this.BASE_URL}/v1/artists/${id}/albums`;
       this._http.get(FEATCH_URL).subscribe(res => {
           this._currentArtistAlbums.next(res.json());
       });
   }
 
   getAlbumSongs(id: string){
-      const FEATCH_URL =`${this.BASE_URL}/v1/albums/${id}`;
+      const FEATCH_URL = `${this.BASE_URL}/v1/albums/${id}`;
       this._http.get(FEATCH_URL).subscribe(res => {
           this._currentAlubumsSongs.next(res.json());
       });

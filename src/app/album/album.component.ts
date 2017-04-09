@@ -35,7 +35,7 @@ export class AlbumComponent implements OnInit , OnDestroy{
             this.audio = audio;
             this.playing = true;
         }else {
-            if(_url === this.playUrl ) {
+            if (_url === this.playUrl ) {
                 this.audio.pause();
                 this.playing = false;
             }else {

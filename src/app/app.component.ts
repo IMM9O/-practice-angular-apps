@@ -19,7 +19,7 @@ export class AppComponent {
         Observable.of(navigator.onLine),
         Observable.fromEvent(window, 'online').map(() => true),
         Observable.fromEvent(window, 'offline').map(() => false)
-      )
+      );
       this.searchList$ = _spotifyService.currentArtistsList$ ;
   }
 

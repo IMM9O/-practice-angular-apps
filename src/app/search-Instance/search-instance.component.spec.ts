@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { SearchComponentComponent } from './search-component.component';
+import { SearchInstanceComponent } from './search-instance.component';
 
-describe('SearchComponentComponent', () => {
-  let component: SearchComponentComponent;
-  let fixture: ComponentFixture<SearchComponentComponent>;
+describe('SearchInstanceComponent', () => {
+  let component: SearchInstanceComponent;
+  let fixture: ComponentFixture<SearchInstanceComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SearchComponentComponent ]
+      declarations: [SearchInstanceComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SearchComponentComponent);
+    fixture = TestBed.createComponent(SearchInstanceComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

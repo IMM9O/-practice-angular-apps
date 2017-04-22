@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="92eee6be6de0b11c924e3ab27db30257159c0a7c" datatype="html">
+        <source>Home</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="004b222ff9ef9dd4771b777950ca1d0e4cd4348a" datatype="html">
+        <source>About</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="fcfd4675b4c90f08d18d3abede9a9a4dff4cfdc7" datatype="html">
+        <source>Documentation</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="dc75033a5238fdc4f462212c847a45ba8018a3fd" datatype="html">
+        <source>Download</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="89db73c222b40ac3ef9686639d5afd02ecc25b1c" datatype="html">
+        <source>
+        Spotify Clone
+      </source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="4c17a0d89e1c2280add8ea8c150446390eb406a6" datatype="html">
+        <source>
+        Spotfiy app built with angular 2 framework
+      </source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="4c6df0ba9607b148965c99706e559100363e79b0" datatype="html">
+        <source>
+
+      You are not connected to the internet please reconnect to the iternet and this message will disappear
+    </source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="696621b2e9420c582fd3eda7dc743834b9c2bb4b" datatype="html">
+        <source>popularity</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="74a288d2244552035ee2dab4dd11d7a73f2f2d90" datatype="html">
+        <source>Hello World</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ba2ae653a41bb77df44f7e0219feffeb764770fa" datatype="html">
+        <source>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend gravida, nulla nunc
+        varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui. Fusce erat odio, sollicitudin vel erat vel,
+        interdum mattis neque.</source>
+        <target/>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

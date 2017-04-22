@@ -14,15 +14,15 @@
         <span></span>
         </span>
         <div class="nav-right nav-menu">
-          <a class="nav-item" routerLink="" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}">Home</a>
-          <a class="nav-item" routerLink="/about" routerLinkActive="is-active">About</a>
-          <a class="nav-item" routerLink="/album/4" routerLinkActive="is-active">Documentation</a>
+          <a class="nav-item" routerLink="" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" i18n>Home</a>
+          <a class="nav-item" routerLink="/about" routerLinkActive="is-active" i18n>About</a>
+          <a class="nav-item" routerLink="/album/4" routerLinkActive="is-active" i18n>Documentation</a>
           <span class="nav-item">
             <a class="button is-primary is-inverted">
               <span class="icon">
                 <i class="fa fa-github"></i>
               </span>
-          <span>Download</span>
+          <span i18n>Download</span>
           </a>
           </span>
         </div>
@@ -33,10 +33,10 @@
   <!-- Hero content: will be in the middle -->
   <div class="hero-body">
     <div class="container has-text-centered">
-      <h1 class="title">
+      <h1 class="title" i18n>
         Spotify Clone
       </h1>
-      <h2 class="subtitle">
+      <h2 class="subtitle" i18n>
         Spotfiy app built with angular 2 framework
       </h2>
     </div>
@@ -52,11 +52,10 @@
 
 <div class="modal" [class.is-active]="!(online$ | async)">
   <div class="modal-background"></div>
-  <div class="modal-content" >
-    <div class="box">
+  <div class="modal-content">
+    <div class="box" i18n>
 
-     You are not connected to the internet 
-     please reconnect to the iternet and this message will disappear
+      You are not connected to the internet please reconnect to the iternet and this message will disappear
     </div>
   </div>
 </div>

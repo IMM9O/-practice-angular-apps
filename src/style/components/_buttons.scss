@@ -1,0 +1,52 @@
+@import './../abstract/variables';
+@import './../abstract/mixins';
+
+.btn {
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  cursor: pointer;
+  @include fontSize(15);
+  @include boxShadow;
+  font-weight: bold;
+  &:disabled {
+    background-color: #EEE;
+    color: #888;
+  }
+  .icon-btn {
+    margin: 0 5px;
+  }
+}
+
+.primary-btn {
+  color: $white;
+  background-color: $primary-color;
+}
+
+.secondary-btn {
+  color: $primary-color;
+  background-color: $white;
+  border: solid 1px $primary-color;
+}
+
+.btn-xs {
+  width: 30px;
+  height: 30px;
+}
+
+.btn-sm {
+  width: 94px;
+  height: 40px;
+}
+
+.btn-md {
+  width: 110px;
+  height: 40px;
+}
+
+.btn-lg {
+  width: 160px;
+  height: 40px;
+}

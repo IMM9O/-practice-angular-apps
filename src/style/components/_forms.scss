@@ -1,0 +1,47 @@
+@import './../abstract/variables';
+@import './../abstract/mixins';
+
+.form-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  &-label {
+    font-size: fontSize(14);
+    color: $secondary-font-color;
+    margin-bottom: 5px;
+    .has-error & {
+      color: $error;
+    }
+  }
+  &-input {
+    padding: 0 12px;
+    height: 36px;
+    border-radius: 3px;
+    border: solid 1px #D6DBE4;
+    background-color: $white;
+    color: $secondary-font-color;
+    .has-error & {
+      border-color: $error;
+    }
+  }
+  &-help {
+    margin-top: 5px;
+    display: none;
+    color: $error;
+    .has-error & {
+      display: block;
+    }
+  }
+}
+
+.form-submit {
+  display: flex;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  &-btn {
+    align-self: flex-end;
+  }
+}

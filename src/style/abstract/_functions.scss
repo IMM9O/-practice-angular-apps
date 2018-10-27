@@ -1,0 +1,5 @@
+@import './variables';
+
+@function calculateRem($pixels, $context: $base-size) {
+  @return $pixels / $context;
+}

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="124" height="40" viewBox="0 0 124 40">
+    <g fill="#8E44AD" fill-rule="evenodd">
+        <path fill-rule="nonzero" d="M16 0a2 2 0 0 0-2 2v2h-4c-3.29 0-6 2.71-6 6v4H2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2v4c0 3.29 2.71 6 6 6h4v2a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-2h4c3.29 0 6-2.71 6-6v-4h2a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-2v-4c0-3.29-2.71-6-6-6h-4V2a2 2 0 0 0-2-2h-8zm-6 8h4v2a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V8h4c1.13 0 2 .87 2 2v4h-2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2v4c0 1.13-.87 2-2 2h-4v-2a2 2 0 0 0-2-2h-8a2 2 0 0 0-2 2v2h-4c-1.13 0-2-.87-2-2v-4h2a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2H8v-4c0-1.13.87-2 2-2z"/>
+        <text font-family="Heebo-Bold, Heebo" font-size="20" font-weight="bold">
+            <tspan x="50.133" y="27">SPACES</tspan>
+        </text>
+    </g>
+</svg>

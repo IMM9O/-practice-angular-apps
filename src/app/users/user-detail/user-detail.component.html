@@ -1,0 +1,27 @@
+<div class="user-container">
+  <img class="user-container-avtar"
+    [src]="user?.avatar"
+    [alt]="user?.first_name">
+  <div class="user-container-name">{{ user?.first_name }} {{ user?.last_name }}</div>
+  <div class="user-container-actions">
+    <button class="btn btn-md primary-btn"
+      (click)="updateEvent()">
+      <img class="icon-btn"
+        src="./assets/img/icon-edit-white.svg"
+        alt="edit icon">
+      Edit
+    </button>
+    <button class="btn btn-md secondary-btn"
+      (click)="deleteEvent()">
+      <img class="icon-btn"
+        src="./assets/img/icon-delete.svg"
+        alt="delete icon">
+      Delete
+    </button>
+  </div>
+
+  <img src="./assets/img/icon-close.svg"
+    alt="close icon"
+    class="user-container-close"
+    (click)="closeEvent()">
+</div>

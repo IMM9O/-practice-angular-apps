@@ -14,6 +14,9 @@ import { RootStoreSelectors } from '../root-store/root-store.selector';
 export class UsersService {
   currentToken: string;
 
+  currentPageNumber = 1;
+  totalPageNumber = 0;
+
   private _isLogin: BehaviorSubject<boolean> = new BehaviorSubject(false);
   public isLogin$: Observable<boolean> = this._isLogin.asObservable();
 
@@ -26,7 +29,7 @@ export class UsersService {
     this.currentToken = this._storage.token;
     if (this.currentToken) {
       this._isLogin.next(true);
-      this.getUserList(1);
+      this.getUserList();
     }
   }
 
@@ -35,12 +38,14 @@ export class UsersService {
       if (res.token) {
         this._isLogin.next(true);
         this._storage.token = res.token;
-        this.getUserList(1);
+        this.getUserList();
       }
     });
   }
 
   logout(): void {
+    this.currentPageNumber = 1;
+    this.totalPageNumber = 0;
     this._isLogin.next(false);
     this._storage.removeToken();
     this._rootStoreService.resetStore();
@@ -56,10 +61,21 @@ export class UsersService {
   /**
    * Users CRUD Operations
    */
-  getUserList(page?: number) {
+  enquireNewPage() {
+    if (this.totalPageNumber !== this.currentPageNumber) {
+      this.currentPageNumber += 1;
+      this.getUserList();
+    }
+  }
+
+  getUserList(page: number = this.currentPageNumber) {
     this._http
       .get<UsersApiResponce>(`${USER_API}?page=${page}`)
-      .subscribe(res => this._rootStoreService.usersRecived(res.data));
+      .subscribe(res => {
+        this.currentPageNumber = res.page;
+        this.totalPageNumber = res.total_pages;
+        this._rootStoreService.usersRecived(res.data);
+      });
   }
 
   getUser(user: number) {

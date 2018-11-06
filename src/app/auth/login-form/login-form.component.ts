@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { UsersService } from './../../core/user.service';
@@ -8,27 +8,37 @@ import { ICredential } from 'src/models/ICredential';
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
-  styleUrls: ['./login-form.component.scss']
+  styleUrls: ['./login-form.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginFormComponent implements Appform {
   loginForm: FormGroup;
 
   constructor(private fb: FormBuilder, private _user: UsersService) {
-    this.loginForm = this.createFormGroup();
+    this.loginForm = this.setFormGroup();
   }
 
-  createFormGroup() {
+  setFormGroup() {
     return this.fb.group({
-      username: ['', Validators.required],
+      username: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
     });
   }
 
-  displayCssFor(field: string | Array<string>) {
+  isFiledHasError(field: string | Array<string>) {
     return this.loginForm.get(field).invalid &&
       (this.loginForm.get(field).touched || this.loginForm.get(field).dirty)
       ? 'has-error'
       : '';
+  }
+
+  isFiledHasErrorWithRule(
+    field: string | Array<string>,
+    ruleName: string
+  ): boolean {
+    if (this.loginForm.get(field).getError(ruleName)) {
+      return this.loginForm.get(field).getError(ruleName)[ruleName];
+    }
   }
 
   onSubmit() {

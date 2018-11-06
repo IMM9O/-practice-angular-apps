@@ -34,10 +34,10 @@ export class UserFormComponent implements Appform, OnChanges {
   constructor(private fb: FormBuilder) {}
 
   ngOnChanges(change: SimpleChanges) {
-    this.userForm = this.createFormGroup();
+    this.userForm = this.setFormGroup();
   }
 
-  createFormGroup() {
+  setFormGroup() {
     if (this.userEdit && this.userEdit.id) {
       return this.fb.group({
         id: [this.userEdit.id],
@@ -51,11 +51,20 @@ export class UserFormComponent implements Appform, OnChanges {
     });
   }
 
-  displayCssFor(field: string | Array<string>) {
+  isFiledHasError(field: string | Array<string>) {
     return this.userForm.get(field).invalid &&
       (this.userForm.get(field).touched || this.userForm.get(field).dirty)
       ? 'has-error'
       : '';
+  }
+
+  isFiledHasErrorWithRule(
+    field: string | Array<string>,
+    ruleName: string
+  ): boolean {
+    if (this.userForm.get(field).getError(ruleName)) {
+      return this.userForm.get(field).getError(ruleName)[ruleName];
+    }
   }
 
   onSubmit() {

@@ -1,7 +1,11 @@
 import { FormGroup } from '@angular/forms';
 
 export interface Appform {
-  createFormGroup(): FormGroup;
-  displayCssFor(field: string | Array<string>): string;
+  setFormGroup(): FormGroup;
+  isFiledHasError(field: string | Array<string>): string;
+  isFiledHasErrorWithRule(
+    field: string | Array<string>,
+    ruleName: string
+  ): boolean;
   onSubmit(): void;
 }

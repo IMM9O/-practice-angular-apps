@@ -14,7 +14,7 @@
     (ngSubmit)="onSubmit()"
     novalidate>
     <div class="form-group"
-      [ngClass]="displayCssFor('first_name')">
+      [ngClass]="isFiledHasError('first_name')">
       <label class="form-group-label"
         for="firstname">First Name</label>
       <input id="firstname"
@@ -25,7 +25,7 @@
       <div class="form-group-help">First Name is required</div>
     </div>
     <div class="form-group"
-      [ngClass]="displayCssFor('last_name')">
+      [ngClass]="isFiledHasError('last_name')">
       <label class="form-group-label"
         for="lastname">Last Name</label>
       <input id="lastname"

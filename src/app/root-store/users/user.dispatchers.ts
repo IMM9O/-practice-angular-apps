@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import * as UserMethods from './user.actions';
-import { AppState } from './../AppState';
+import { AppReducers } from '../AppReducers';
 import { IUser } from 'src/models/IUser';
 
 @Injectable()
 export class UserDispatchers {
-  constructor(private _store: Store<AppState>) {}
+  constructor(private _store: Store<AppReducers>) {}
 
   /** Dispacth actions */
   usersDetailsReceived(payload: IUser[]): void {

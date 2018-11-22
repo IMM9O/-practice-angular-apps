@@ -1,24 +1,38 @@
 <header class="header">
-
-  <div class="header-logo">
-    <img src="./assets/img/logo.svg"
-      alt="logo">
-  </div>
+  <div class="header-logo"><img src="./assets/img/logo.svg" alt="logo" /></div>
 
   <ul class="header-nav">
     <li>HOME</li>
     <li>ABOUT</li>
     <li>CONTACT</li>
-    <li *ngIf="userSerive.isLogin$ | async"
-      (click)="userSerive.logout()"> Logout</li>
-    <li *ngIf="!(userSerive.isLogin$ | async)"><button class="btn btn-sm primary-btn">login</button></li>
-    <li *ngIf="userSerive.isLogin$ | async"
-      (click)="userSerive.enquireNewPage()"><button class="btn btn-md primary-btn">ENQUIRE</button></li>
+    <li
+      *ngIf="(userSerive.state$ | async)?.isLogin"
+      (click)="userSerive.logout()"
+    >
+      Logout
+    </li>
+    <li *ngIf="!(userSerive.state$ | async)?.isLogin">
+      <button class="btn btn-sm primary-btn">login</button>
+    </li>
+    <li
+      *ngIf="(userSerive.state$ | async)?.isLogin"
+      (click)="userSerive.enquireNewPage()"
+    >
+      <button class="btn btn-md primary-btn">ENQUIRE</button>
+    </li>
   </ul>
-
 </header>
 <div class="main">
-  <app-login-form *ngIf="!(userSerive.isLogin$ | async)"></app-login-form>
-  <app-users *ngIf="userSerive.isLogin$ | async"
-    [users]="userSerive.users$ | async"></app-users>
+  <app-login-form
+    *ngIf="!(userSerive.state$ | async)?.isLogin"
+  ></app-login-form>
+  <app-users
+    *ngIf="(userSerive.state$ | async)?.isLogin"
+    [users]="userSerive.users$ | async"
+  ></app-users>
+
+  <pre>
+
+    {{ userSerive.state$ | async | json }}
+  </pre>
 </div>

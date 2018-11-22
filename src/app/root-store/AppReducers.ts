@@ -1,5 +1,5 @@
 import { IUser } from 'src/models/IUser';
 
-export interface AppState {
+export interface AppReducers {
   userReducer: IUser[];
 }

@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import { AppState } from './AppState';
+import { AppReducers } from './AppReducers';
 import { Observable } from 'rxjs';
 import { IUser } from 'src/models/IUser';
 
 @Injectable()
 export class RootStoreSelectors {
-  constructor(private _store: Store<AppState>) {}
+  constructor(private _store: Store<AppReducers>) {}
 
   /** selectors  */
   get users$(): Observable<IUser[]> {

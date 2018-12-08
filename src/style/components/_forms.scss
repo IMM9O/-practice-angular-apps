@@ -1,37 +1,28 @@
 @import './../abstract/variables';
 @import './../abstract/mixins';
 
+/** Hak way to add style to the label also to make it has-errors style*/
 .form-group {
-  width: 100%;
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
-  &-label {
+  label {
+    order: -1;
     font-size: fontSize(14);
     color: $secondary-font-color;
     margin-bottom: 5px;
-    .has-error & {
-      color: $error;
-    }
   }
-  &-input {
-    padding: 0 12px;
-    height: 36px;
-    border-radius: 3px;
-    border: solid 1px #D6DBE4;
-    background-color: $white;
-    color: $secondary-font-color;
-    .has-error & {
-      border-color: $error;
-    }
-  }
-  &-help {
+  .invalid-feedback {
     margin-top: 5px;
-    display: none;
+  }
+}
+
+.ng-invalid.ng-touched {
+  border-color: $error;
+  ~ label {
     color: $error;
-    .has-error & {
-      display: block;
-    }
+  }
+  ~ .invalid-feedback {
+    display: block;
   }
 }
 

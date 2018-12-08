@@ -2,62 +2,83 @@
   <div class="header-nav acent-color">Home / Dashboard</div>
   <div class="form-submit">
     <span class="header-title">Users List</span>
-    <button type="submit"
+    <button
+      type="submit"
       class="btn btn-lg primary-btn form-submit-btn"
-      (click)="createUser()">+ New User</button>
+      (click)="createUser()"
+    >
+      + New User
+    </button>
   </div>
 </div>
-
 
 <div class="users-container">
   <div class="cells">
-    <div *ngFor="let user of users; trackBy: TrackByFunction"
+    <div
+      *ngFor="let user of users; trackBy: TrackByFunction"
       class="user-cell"
       [class.user-cell_selected]="user?.id === selectedUser?.id"
-      (click)="selectUser(user)">
+      (click)="selectUser(user)"
+    >
       <div class="user-cell-head">
-        <img *ngIf="user?.avatar"
+        <img
+          *ngIf="user?.avatar"
           [src]="user?.avatar"
           [alt]="user?.first_name"
-          class="user-cell-avtar">
-        <div *ngIf="!user?.avatar"
-          class="user-cell-avtar empty-img">
-          <img src="./assets/img/icon-user.svg"
-            [alt]="user?.first_name">
+          class="user-cell-avtar"
+        />
+        <div *ngIf="!user?.avatar" class="user-cell-avtar empty-img">
+          <img src="./assets/img/icon-user.svg" [alt]="user?.first_name" />
         </div>
-        <div class="user-cell-name">{{ user?.first_name }} {{ user?.last_name }}</div>
+        <div class="user-cell-name">
+          {{ user?.first_name }} {{ user?.last_name }}
+        </div>
       </div>
       <div class="user-cell-actions">
-        <button *ngIf="user?.id !== selectedUser?.id"
+        <button
+          *ngIf="user?.id !== selectedUser?.id"
           class="btn secondary-btn btn-xs"
-          (click)="updateUser($event, user)"><img src="./assets/img/icon-edit.svg"></button>
-        <button *ngIf="user?.id !== selectedUser?.id"
+          (click)="updateUser($event, user)"
+        >
+          <img src="./assets/img/icon-edit.svg" />
+        </button>
+        <button
+          *ngIf="user?.id !== selectedUser?.id"
           class="btn secondary-btn btn-xs"
-          (click)="deleteUser($event, user)"><img src="./assets/img/icon-delete.svg"></button>
+          (click)="deleteUser($event, user)"
+        >
+          <img src="./assets/img/icon-delete.svg" />
+        </button>
 
-        <img *ngIf="user?.id === selectedUser?.id"
+        <img
+          *ngIf="user?.id === selectedUser?.id"
           src="./assets/img/icon-right-white.svg"
-          alt="">
+          alt=""
+        />
       </div>
     </div>
   </div>
-  <div *ngIf="selectedUser"
-    class="details">
-    <app-user-detail [user]="selectedUser"
+  <div *ngIf="selectedUser" class="details">
+    <app-user-detail
+      [user]="selectedUser"
       (closeNotify)="resetSelectedUser()"
       (updateNotify)="updateUser(null, $event)"
-      (deleteNotify)="deleteUser(null, $event)"></app-user-detail>
+      (deleteNotify)="deleteUser(null, $event)"
+    ></app-user-detail>
   </div>
 </div>
 
-
-<app-user-form *ngIf="updateedUser"
+<app-user-form
+  *ngIf="updateedUser"
   [userEdit]="updateedUser"
   (closeNotify)="closeEditMode()"
   (updateNotify)="userService.updateUser($event)"
-  (createNotify)="userService.createUser($event)"></app-user-form>
+  (createNotify)="userService.createUser($event)"
+></app-user-form>
 
-<app-user-delete *ngIf="deletedUser"
+<app-user-delete
+  *ngIf="deletedUser"
   [userEdit]="deletedUser"
   (closeNotify)="closeDeleteMode()"
-  (deleteNotify)="userService.deleteUser($event)"></app-user-delete>
+  (deleteNotify)="userService.deleteUser($event)"
+></app-user-delete>

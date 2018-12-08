@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UsersService } from './../../core/user.service';
 import { Appform } from 'src/models/AppForm';
 import { ICredential } from 'src/models/ICredential';
+import { AuthValidators } from '../auth.validators';
 
 @Component({
   selector: 'app-login-form',
@@ -20,25 +21,21 @@ export class LoginFormComponent implements Appform {
 
   setFormGroup() {
     return this.fb.group({
-      username: ['', [Validators.required, Validators.email]],
+      username: [
+        '',
+        [Validators.required, Validators.email],
+        [AuthValidators.emailShouldBeUnique]
+      ],
       password: ['', Validators.required]
     });
   }
 
-  isFiledHasError(field: string | Array<string>) {
-    return this.loginForm.get(field).invalid &&
-      (this.loginForm.get(field).touched || this.loginForm.get(field).dirty)
-      ? 'has-error'
-      : '';
+  get username() {
+    return this.loginForm.get('username');
   }
 
-  isFiledHasErrorWithRule(
-    field: string | Array<string>,
-    ruleName: string
-  ): boolean {
-    if (this.loginForm.get(field).getError(ruleName)) {
-      return this.loginForm.get(field).getError(ruleName)[ruleName];
-    }
+  get password() {
+    return this.loginForm.get('password');
   }
 
   onSubmit() {

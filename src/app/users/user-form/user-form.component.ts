@@ -51,20 +51,11 @@ export class UserFormComponent implements Appform, OnChanges {
     });
   }
 
-  isFiledHasError(field: string | Array<string>) {
-    return this.userForm.get(field).invalid &&
-      (this.userForm.get(field).touched || this.userForm.get(field).dirty)
-      ? 'has-error'
-      : '';
+  get firstName() {
+    return this.userForm.get('first_name');
   }
-
-  isFiledHasErrorWithRule(
-    field: string | Array<string>,
-    ruleName: string
-  ): boolean {
-    if (this.userForm.get(field).getError(ruleName)) {
-      return this.userForm.get(field).getError(ruleName)[ruleName];
-    }
+  get lastName() {
+    return this.userForm.get('last_name');
   }
 
   onSubmit() {

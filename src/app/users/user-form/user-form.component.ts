@@ -21,15 +21,11 @@ import { IUser } from 'src/models/IUser';
 export class UserFormComponent implements Appform, OnChanges {
   userForm: FormGroup;
 
-  @Input()
-  userEdit: IUser = {};
+  @Input() userEdit: IUser = {};
 
-  @Output()
-  closeNotify: EventEmitter<boolean> = new EventEmitter<boolean>();
-  @Output()
-  updateNotify: EventEmitter<IUser> = new EventEmitter<IUser>();
-  @Output()
-  createNotify: EventEmitter<IUser> = new EventEmitter<IUser>();
+  @Output() closeNotify = new EventEmitter<boolean>();
+  @Output() updateNotify = new EventEmitter<IUser>();
+  @Output() createNotify = new EventEmitter<IUser>();
 
   constructor(private fb: FormBuilder) {}
 

@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/" routerLinkActive="active">
+      News
+    </a>
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/news" routerLinkActive="active">
+            Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/headlines" routerLinkActive="active">
+            Headlines
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="row">
+    <h1 class="col">{{ title }}</h1>
+  </div>
+
+  <ng-container *ngIf="app?.selectedArticle$ | async as article">
+    <div class="row" *ngIf="article">
+      <div class="col">
+        <app-article [article]="article"></app-article>
+      </div>
+    </div>
+  </ng-container>
+
+  <div class="row" *ngIf="!(app?.selectedArticle$ | async)">
+    <div class="col">
+      <app-search-form></app-search-form>
+    </div>
+  </div>
+  <div class="row" *ngIf="!(app?.selectedArticle$ | async)">
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

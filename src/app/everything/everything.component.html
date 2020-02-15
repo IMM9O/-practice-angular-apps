@@ -1,0 +1,23 @@
+<div class="col-sm-12 mt-4 mb-4" *ngFor="let news of (news$ | async)?.articles">
+  <div class="row flex-row flex-wrap">
+    <div class="col-auto">
+      <img
+        width="200"
+        height="200"
+        class="img-fluid mr-2"
+        [src]="news?.urlToImage"
+        [alt]="news?.title"
+      />
+    </div>
+
+    <div class="col">
+      <div class="card-block px-2">
+        <h3 class="card-title">{{ news?.title }}</h3>
+        <p class="card-text">{{ news?.description }}</p>
+        <button type="button" class="btn btn-link" (click)="setArticle(news)">
+          Show more
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,7 +1,20 @@
-<div class="row">
-  <input type="search" class="form-control" />
-</div>
-<div class="row">
-  <div class="form-inline"></div>
-</div>
-<div class="row"></div>
+<form [formGroup]="searchForm">
+  <div class="row mt-2 mb-2">
+    <div class="col">
+      <input type="search" class="form-control" formControlName="term" />
+    </div>
+  </div>
+  <div class="row mt-2 mb-2">
+    <div class="col">
+      <app-selector-input-sources [control]="searchForm?.get('source')">
+      </app-selector-input-sources>
+    </div>
+    <div class="col">
+      <app-selector-input-countries [control]="searchForm?.get('country')">
+      </app-selector-input-countries>
+    </div>
+
+    <div class="col"></div>
+    <div class="col"></div>
+  </div>
+</form>

@@ -1,4 +1,7 @@
-<div class="col-sm-12 mt-4 mb-4" *ngFor="let news of (news$ | async)?.articles">
+<div
+  class="col-sm-12 mt-4 mb-4"
+  *ngFor="let news of (app.news$ | async)?.articles; trackBy: TrackByFunction"
+>
   <div class="row flex-row flex-wrap">
     <div class="col-auto">
       <img

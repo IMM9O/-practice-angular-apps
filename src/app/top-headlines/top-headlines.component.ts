@@ -11,14 +11,17 @@ import { AppService } from '../app.service';
   styleUrls: ['./top-headlines.component.css']
 })
 export class TopHeadlinesComponent implements OnInit {
-  news$: Observable<NewsResponse>;
-  constructor(private _news: NewsGatewayService, private _app: AppService) {}
+  constructor(private _news: NewsGatewayService, public app: AppService) {}
 
   ngOnInit(): void {
-    this.news$ = this._news.getTopHeadlines();
+    // this.app.news$ = this._news.getTopHeadlines();
   }
 
   setArticle(article: Article) {
-    this._app.setSelectedArticle(article);
+    this.app.setSelectedArticle(article);
+  }
+
+  TrackByFunction(index, item: Article) {
+    return item.title;
   }
 }

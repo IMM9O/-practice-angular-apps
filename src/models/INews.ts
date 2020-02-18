@@ -4,6 +4,11 @@ export interface NewsResponse {
   articles: Article[];
 }
 
+export interface SourcesResponse {
+  status: string;
+  sources: Source[];
+}
+
 export interface Article {
   source: Source;
   author: string;
@@ -16,8 +21,13 @@ export interface Article {
 }
 
 export interface Source {
-  id: number;
+  id: string;
   name: string;
+  description?: string;
+  url?: string;
+  category?: string;
+  language?: string;
+  country?: string;
 }
 
 export interface GeopluginAPI {

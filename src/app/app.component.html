@@ -1,0 +1,61 @@
+<section class="hero is-dark is-bold">
+  <!-- Hero header: will stick at the top -->
+  <div class="hero-head">
+    <header class="nav">
+      <div class="container">
+        <div class="nav-left">
+          <a class="nav-item">
+            <img src="./../assets/images/spotfiy.png" alt="Logo">
+          </a>
+        </div>
+        <span class="nav-toggle">
+          <span></span>
+        <span></span>
+        <span></span>
+        </span>
+        <div class="nav-right nav-menu">
+          <a class="nav-item" routerLink="" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" i18n>Home</a>
+          <a class="nav-item" routerLink="/about" routerLinkActive="is-active" i18n>About</a>
+          <a class="nav-item" routerLink="/album/4" routerLinkActive="is-active" i18n>Documentation</a>
+          <span class="nav-item">
+            <a class="button is-primary is-inverted">
+              <span class="icon">
+                <i class="fa fa-github"></i>
+              </span>
+          <span i18n>Download</span>
+          </a>
+          </span>
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <!-- Hero content: will be in the middle -->
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h1 class="title" i18n>
+        Spotify Clone
+      </h1>
+      <h2 class="subtitle" i18n>
+        Spotfiy app built with angular 2 framework
+      </h2>
+    </div>
+  </div>
+
+  <!-- Hero footer: will stick at the bottom -->
+  <div class="hero-foot">
+    <app-search [results]="searchList$" (getItemNotify)="getItemNotify($event)" (searchNotify)="searchNotify($event)"></app-search>
+  </div>
+</section>
+<router-outlet></router-outlet>
+<!-- Routed views go here -->
+
+<div class="modal" [class.is-active]="!(online$ | async)">
+  <div class="modal-background"></div>
+  <div class="modal-content">
+    <div class="box" i18n>
+
+      You are not connected to the internet please reconnect to the iternet and this message will disappear
+    </div>
+  </div>
+</div>

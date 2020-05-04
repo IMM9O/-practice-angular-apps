@@ -1,0 +1,25 @@
+
+  <article class="album-title" *ngIf="artist$ | async">
+
+    <img *ngIf="(artist$ | async)?.images.length > 2" [src]="(artist$ | async)?.images[1].url" alt="" >
+
+    <img *ngIf="(artist$ | async)?.images.length <= 0" src="../../assets/images/profile.png" alt="" >
+    <div class="desc">
+
+      <h1>{{ (artist$ | async)?.name}}</h1>
+      <h5>{{ (artist$ | async)?.followers.total | countSize}}</h5>
+    </div>
+
+  </article>
+
+  <article class="Tracks" *ngIf="albums$ | async">
+      <div class="track"   *ngFor="let album of (albums$ | async)?.items">
+        <a routerLink="/album/{{album.id}}">
+          <img class="track-img" [src]="album.images[1].url" alt="">
+        </a>
+        
+        <p class="track-text">
+          {{album.name}}
+        </p>
+      </div>
+  </article>

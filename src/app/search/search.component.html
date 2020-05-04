@@ -1,0 +1,17 @@
+<!--<p class="control has-icon has-icon-right">
+      <input class="input is-medium" type="text" placeholder="Artist name" (keyup.enter)="searchEvent($event)">
+      <span class="icon is-medium">
+         <i class="fa fa-spotify" aria-hidden="true"></i>
+      </span>
+    </p>-->
+
+
+<div class="dropdown">
+  <input [formControl]="term" placeholder="Search Spotify artist" />
+  <ul class="dropdown-content" *ngIf="(results | async)?.length">
+    <li *ngFor="let artist  of results | async" (click)="selectEvent(artist.name)">
+      {{ artist.name }} --
+      <span i18n>popularity</span> {{ artist.popularity }}
+    </li>
+  </ul>
+</div>

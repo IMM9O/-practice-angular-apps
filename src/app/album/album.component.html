@@ -1,0 +1,32 @@
+<div *ngIf="album">
+
+
+
+
+  <article class="album-title">
+
+    <img [src]="album.images[1].url" alt="">
+
+    <div class="desc">
+
+      <h1>{{ album.name}}</h1>
+      <h5>{{ album.release_date }}</h5>
+    </div>
+
+  </article>
+
+  <article class="Tracks" *ngIf="album.tracks">
+      <div class="track"  *ngFor="let track of album.tracks.items">
+        <img [src]="album.images[1].url" alt="">
+        <p class="track-text">
+          {{track.name}}
+        </p>
+        <div class="track-play" (click)="playAudio(track.preview_url)">
+              <span *ngIf="playUrl === track.preview_url && playing">| |</span> 
+              <span *ngIf="!(playUrl === track.preview_url && playing)">&#9654;</span>
+        </div>
+      </div>
+
+
+  </article>
+</div>

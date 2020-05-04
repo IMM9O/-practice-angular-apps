@@ -1,0 +1,38 @@
+@import './../style/abstract/variables';
+@import './../style/abstract/mixins';
+
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .header {
+    flex: 0 0 70px;
+    display: flex;
+    background-color: $white;
+    justify-content: space-between;
+    @include boxShadow;
+    padding: 0 100px;
+    &-logo {
+      display: flex;
+      align-items: center;
+    }
+    &-nav {
+      align-self: flex-end;
+      list-style: none;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      > *:not(:last-child) {
+        font-weight: bold;
+        @include fontSize(15);
+        margin-right: 30px;
+      }
+    }
+  }
+
+  .main {
+    flex: 1;
+    background-color: #F5F5F5;
+  }
+}

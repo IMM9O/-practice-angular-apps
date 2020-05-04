@@ -1,0 +1,37 @@
+@import './../../../style/abstract/variables';
+@import './../../../style/abstract/mixins';
+
+:host {
+  .user-container {
+    position: relative;
+    background-color: #F5F5F5;
+    height: 100%;
+    padding: 55px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &-avtar {
+      width: 125px;
+      height: 125px;
+      border: solid 1px $white;
+      border-radius: 50%;
+      margin-bottom: 15px;
+    }
+    &-name {
+      font-size: fontSize(25px);
+      font-weight: 500;
+      color: $primary-font-color;
+      margin-bottom: 25px;
+    }
+    &-actions {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+    &-close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+    }
+  }
+}

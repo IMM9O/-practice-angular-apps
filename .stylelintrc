@@ -1,0 +1,12 @@
+{
+  "rules": {
+    "block-no-empty": null,
+    "color-no-invalid-hex": true,
+    "color-hex-case" : "upper",
+    "color-named" : "never",
+    "declaration-no-important" : true,
+    "value-no-vendor-prefix" : true,
+    "property-no-vendor-prefix" : true,
+    "unit-whitelist": ["rem", "px" , "%" ]
+  }
+}

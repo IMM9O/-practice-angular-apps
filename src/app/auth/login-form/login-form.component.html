@@ -1,0 +1,76 @@
+<div class="login-container">
+  <div class="login-container-head">
+    <img src="./assets/img/rectangle-copy.jpg" alt="login" />
+  </div>
+
+  <div class="login-container-body">
+    <div class="login-container-body-title primary-color">Welcome back!</div>
+    <div class="login-container-body-sub-title secondary-color">
+      Please login to access your
+      <span class="acent-color">Spaces</span> Dashboard
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+      <div class="form-group">
+        <input
+          id="username"
+          type="text"
+          class="form-control"
+          placeholder="Username"
+          formControlName="username"
+        />
+        <label for="username">Username</label>
+        <div *ngIf="username?.errors?.email" class="invalid-feedback">
+          Username must be a valid email
+        </div>
+        <div *ngIf="username?.errors?.required" class="invalid-feedback">
+          Username is required
+        </div>
+        <div
+          *ngIf="username?.errors?.UsernameShouldBeUnique"
+          class="invalid-feedback"
+        >
+          Username Should be unique
+        </div>
+      </div>
+      <div class="form-group">
+        <input
+          id="password"
+          type="password"
+          class="form-control"
+          placeholder="Password"
+          formControlName="password"
+          autocomplete
+        />
+        <label for="password">Password</label>
+        <div *ngIf="password?.errors?.required" class="invalid-feedback">
+          Password is required
+        </div>
+      </div>
+      <div class="form-group">
+        <input
+          id="confirm"
+          type="password"
+          class="form-control"
+          placeholder="Confirm Password"
+          formControlName="confirm"
+          autocomplete
+        />
+        <label for="confirm">Confirm Password</label>
+        <div *ngIf="confirm?.errors?.MatchPassword" class="invalid-feedback">
+          Your password and confirmation password do not match
+        </div>
+      </div>
+      <div class="form-submit">
+        <span class="acent-color">Forgot password?</span>
+        <button
+          type="submit"
+          class="btn btn-sm primary-btn form-submit-btn"
+          [disabled]="!loginForm.valid"
+        >
+          Login
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<header class="header">
+  <div class="header-logo"><img src="./assets/img/logo.svg" alt="logo" /></div>
+
+  <div class="header-nav">
+    <span>HOME</span> <span>ABOUT</span> <span>CONTACT</span>
+    <span
+      *ngIf="(userSerive.state$ | async)?.isLogin"
+      (click)="userSerive.logout()"
+    >
+      Logout
+    </span>
+    <span *ngIf="!(userSerive.state$ | async)?.isLogin">
+      <button class="btn btn-sm primary-btn">login</button>
+    </span>
+    <span
+      *ngIf="(userSerive.state$ | async)?.isLogin"
+      (click)="userSerive.enquireNewPage()"
+    >
+      <button class="btn btn-md primary-btn">ENQUIRE</button>
+    </span>
+  </div>
+</header>
+<div class="main">
+  <app-login-form
+    *ngIf="!(userSerive.state$ | async)?.isLogin"
+  ></app-login-form>
+  <app-users
+    *ngIf="(userSerive.state$ | async)?.isLogin"
+    [users]="userSerive.users$ | async"
+  ></app-users>
+</div>

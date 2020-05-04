@@ -1,0 +1,11 @@
+@import './functions';
+@import './variables';
+
+@mixin fontSize($size) {
+  font-size: #{$size}px; //Fallback in px
+  font-size: #{calculateRem($size)}rem;
+}
+
+@mixin boxShadow {
+  box-shadow: 0 2px 4px 0 rgba($black, 0.2);
+}

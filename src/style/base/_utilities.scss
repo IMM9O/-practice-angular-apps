@@ -1,0 +1,14 @@
+
+@import './../abstract/variables';
+
+.primary-color {
+  color: $primary-font-color;
+}
+
+.secondary-color {
+  color: $secondary-font-color;
+}
+
+.acent-color {
+  color: $primary-color;
+}

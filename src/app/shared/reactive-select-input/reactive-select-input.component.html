@@ -1,0 +1,34 @@
+<div [class.form-group]="!isInline" [class.form-inline]="isInline">
+  <label
+    *ngIf="filedLabel"
+    [for]="fieldId"
+    class="control-label"
+    [class.md]="isInline"
+  >
+    {{ filedLabel }}
+  </label>
+  <div class="form-group lg-input">
+    <select
+      class="form-control"
+      [formControl]="control"
+      [id]="fieldId"
+      [attr.disabled]="disabled ? '' : null"
+    >
+      <option *ngIf="filedLabel" value="" disabled selected>
+        {{ filedLabel }}
+      </option>
+      <!-- For key value -->
+      <ng-container *ngIf="keyOptions">
+        <option *ngFor="let option of keyOptions" [value]="option?.key">
+          {{ option?.value }}
+        </option>
+      </ng-container>
+      <!-- For array string -->
+      <ng-container *ngIf="options">
+        <option *ngFor="let option of options" [value]="option">
+          {{ option }}
+        </option>
+      </ng-container>
+    </select>
+  </div>
+</div>

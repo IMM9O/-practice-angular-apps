@@ -1,0 +1,32 @@
+<div class="col-sm-12 mt-4 mb-4">
+  <div class="row flex-row flex-wrap">
+    <div class="col-4">
+      <img
+        class="img-fluid"
+        [src]="article?.urlToImage"
+        [alt]="article?.title"
+      />
+    </div>
+
+    <div class="col">
+      <div class="card-block px-2">
+        <h2>Title: {{ article?.title }}</h2>
+        <h4>Source: {{ article?.source?.name }}</h4>
+        <h4>Author: {{ article?.author }}</h4>
+        <h4>Published: {{ article.publishedAt }}</h4>
+        <a [href]="article?.url" target="_blank">Open original post</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <p class="m-2 p-2">
+        {{ article?.content }}
+      </p>
+      <button type="button" class="btn btn-link" (click)="resetArticle()">
+        Go back
+      </button>
+    </div>
+  </div>
+</div>

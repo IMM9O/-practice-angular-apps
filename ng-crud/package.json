@@ -28,7 +28,7 @@
   "devDependencies": {
     "@ngrx/store-devtools": "^8.3.0",
     "gh-pages": "^2.1.1",
-    "@angular-devkit/build-angular": "~0.803.2",
+    "@angular-devkit/build-angular": "~15.0.4",
     "@angular/cli": "~8.3.2",
     "@angular/compiler-cli": "~8.2.4",
     "@angular/language-service": "~8.2.4",
